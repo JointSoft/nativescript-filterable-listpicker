@@ -64,6 +64,7 @@ export const sourceProperty = new Property<FilterableListpicker, ObservableArray
 	},
 });
 
+@NativeClass()
 export class FilterableListpicker extends GridLayout {
 	constructor() {
 		super();
@@ -201,7 +202,7 @@ export class FilterableListpicker extends GridLayout {
 			this._textField.text = "";
 		}
 		if (this.blurView) {
-			UIView.animateWithDurationAnimationsCompletion(
+			this.page.nativeView.UIView.animateWithDurationAnimationsCompletion(
 				0.3,
 				() => {
 					this.blurView.effect = null;
@@ -249,19 +250,20 @@ export class FilterableListpicker extends GridLayout {
 
 		this.source = unfilteredSource.filter((i) => true);
 		if (isIOS && this.blur && this.blur !== "none") {
-			let iosView: UIView = this._container.ios;
-			let effectView = UIVisualEffectView.alloc().init();
-			effectView.frame = CGRectMake(0, 0, iosView.bounds.size.width, iosView.bounds.size.height);
-			effectView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+			let iosView: any = this._container.ios;
+			let effectView = this.page.nativeView.UIVisualEffectView.alloc().init();
+			effectView.frame = this.page.nativeView.CGRectMake(0, 0, iosView.bounds.size.width, iosView.bounds.size.height);
+			effectView.autoresizingMask =
+				this.page.nativeView.UIViewAutoresizing.FlexibleWidth | this.page.nativeView.UIViewAutoresizing.FlexibleHeight;
 			this.blurView = effectView;
 			iosView.addSubview(effectView);
 			iosView.sendSubviewToBack(effectView);
-			UIView.animateWithDurationAnimationsCompletion(
+			this.page.nativeView.UIView.animateWithDurationAnimationsCompletion(
 				0.3,
 				() => {
-					let theme = UIBlurEffectStyle.Dark;
-					if (this.blur === "light") theme = UIBlurEffectStyle.Light;
-					effectView.effect = UIBlurEffect.effectWithStyle(theme);
+					let theme = this.page.nativeView.UIBlurEffectStyle.Dark;
+					if (this.blur === "light") theme = this.page.nativeView.UIBlurEffectStyle.Light;
+					effectView.effect = this.page.nativeView.UIBlurEffect.effectWithStyle(theme);
 				},
 				() => {
 					// the animation is complete.
