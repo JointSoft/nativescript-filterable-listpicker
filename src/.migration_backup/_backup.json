@@ -9,6 +9,12 @@
 		"package.json",
 		"nsconfig.json",
 		"package.json",
+		"nsconfig.json",
+		"hooks",
+		"package.json",
+		"package-lock.json",
+		"nsconfig.json",
+		"package.json",
 		"nsconfig.json"
 	]
 }
