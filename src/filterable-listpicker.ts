@@ -1,11 +1,10 @@
-import { ObservableArray } from "tns-core-modules/data/observable-array";
-import { isIOS } from "tns-core-modules/platform";
-import * as builder from "tns-core-modules/ui/builder";
-import { booleanConverter, Property, PropertyChangeData } from "tns-core-modules/ui/core/view";
-import * as enums from "tns-core-modules/ui/enums";
-import { AnimationCurve } from "tns-core-modules/ui/enums";
-import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
-import { TextField } from "tns-core-modules/ui/text-field";
+import { booleanConverter, ObservableArray, Property, PropertyChangeData } from "@nativescript/core/";
+import { isIOS } from "@nativescript/core/platform";
+import { TextField } from "@nativescript/core/ui";
+import * as builder from "@nativescript/core/ui/builder";
+import * as enums from "@nativescript/core/ui/enums";
+import { AnimationCurve } from "@nativescript/core/ui/enums";
+import { GridLayout } from "@nativescript/core/ui/layouts/";
 
 let unfilteredSource: Array<any> = [];
 let filtering: boolean = false;
@@ -75,7 +74,7 @@ export class FilterableListpicker extends GridLayout {
 		super.onLoaded();
 		console.log(" ---------- LISTPICKER LOADED ----------");
 		// let innerComponent = builder.load(__dirname + '/filterable-listpicker.xml') as View;
-		let innerComponent = builder.parse(`
+		let innerComponent = builder.Builder.parse(`
           <GridLayout id="dc_flp_container" class="flp-container" visibility="collapsed" loaded="{{loadedContainer}}">
               <StackLayout width="100%" height="100%"></StackLayout>
               <GridLayout width="{{listWidth}}" verticalAlignment="middle" rows="auto, auto, auto, auto" id="dc_flp" class="flp-list-container" loaded="{{loadedInnerContainer}}">
