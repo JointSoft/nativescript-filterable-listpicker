@@ -36,7 +36,8 @@
 		"clean": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json && cd ../src && npx rimraf -- node_modules",
 		"ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
 		"pack": "cd ../publish && ./pack.sh && cd ..",
-		"publish": "npm version patch && cd ../publish && ./publish.sh && cd .."
+		"publish": "npm version patch && cd ../publish && ./publish.sh && cd ..",
+		"publish.major": "npm version patch && cd ../publish && ./publish.sh && cd .."
 	},
 	"keywords": [
 		"NativeScript",
