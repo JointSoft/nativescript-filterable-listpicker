@@ -22,7 +22,7 @@ export declare class FilterableListpicker extends GridLayout {
 	dimmerColor: any;
 	hintText: any;
 	hideFilter: any;
-	enableSearch: boolean;
+	enableSearch: any;
 	blur: any;
 	markerColor?: string;
 	private blurView;
