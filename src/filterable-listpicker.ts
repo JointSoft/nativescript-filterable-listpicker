@@ -27,7 +27,8 @@ export const headingTitleProperty = new Property<FilterableListpicker, string>({
 });
 export const enableSearchProperty = new Property<FilterableListpicker, boolean>({
 	name: "enableSearch",
-	defaultValue: true
+	defaultValue: false,
+	valueConverter: booleanConverter
 });
 export const showCancelProperty = new Property<FilterableListpicker, boolean>({
 	name: "showCancel",
