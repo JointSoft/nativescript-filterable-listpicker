@@ -27,8 +27,7 @@ export const headingTitleProperty = new Property<FilterableListpicker, string>({
 });
 export const enableSearchProperty = new Property<FilterableListpicker, boolean>({
 	name: "enableSearch",
-	defaultValue: true,
-	valueConverter: booleanConverter
+	defaultValue: true
 });
 export const showCancelProperty = new Property<FilterableListpicker, boolean>({
 	name: "showCancel",
@@ -116,7 +115,7 @@ export class FilterableListpicker extends GridLayout {
 	public dimmerColor: any;
 	public hintText: any;
 	public hideFilter: any;
-	public enableSearch: boolean;
+	public enableSearch: any;
 	public blur: any;
 	public markerColor: string;
 	private blurView: any = false;
