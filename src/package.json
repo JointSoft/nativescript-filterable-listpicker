@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-filterable-listpicker",
-	"version": "2.2.54",
+	"version": "2.2.57",
 	"description": "A modal list picker with filtering capabilities.",
 	"main": "filterable-listpicker",
 	"typings": "index.d.ts",
@@ -70,15 +70,12 @@
 	"homepage": "https://github.com/JointSoft/nativescript-filterable-listpicker#readme",
 	"readmeFilename": "README.md",
 	"devDependencies": {
-		"@nativescript/core": "^7.0.13",
-		"@nativescript/types": "^7.0.4",
-		"@nativescript/webpack": "~3.0.0",
 		"rimraf": "^2.5.0",
-		"ts-patch": "^1.3.0",
-		"typescript": "~3.9.0"
+		"tns-core-modules": "^6.3.2",
+		"tns-platform-declarations": "^6.0.0",
+		"tslint": "^5.0.0",
+		"typescript": "^3.7.4"
 	},
-	"dependencies": {
-		"ts-node": "^9.0.0"
-	},
+	"dependencies": {},
 	"bootstrapper": "nativescript-plugin-seed"
 }
