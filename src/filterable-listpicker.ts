@@ -173,7 +173,7 @@ export class FilterableListpicker extends GridLayout {
 		const lv = this.getViewById("filterLV") as any;
 		const selectedItem = this.source[args.index];
 		const item = args.view;
-		if (item.locked) {
+		if (item.locked === true) {
 			return;
 		}
 		this.notify({
