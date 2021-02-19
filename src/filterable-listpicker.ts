@@ -101,8 +101,8 @@ export class FilterableListpicker extends GridLayout {
                           </StackLayout>
                       </ListView.itemTemplate>
                   </ListView>
-                  <StackLayout row="3" class="flp-cancel-container" visibility="{{showCancel ? 'visible' : 'collapse'}}">
-                      <Button text="Done" tap="{{cancel}}" verticalAlignment="middle" class="flp-btn-cancel"></Button>
+                  <StackLayout id="doneContainer row="3" class="flp-cancel-container" visibility="{{showCancel ? 'visible' : 'collapse'}}">
+                      <Button text="Done" tap="{{cancel, cancel}}" verticalAlignment="middle" class="flp-btn-cancel"></Button>
                   </StackLayout>
               </GridLayout>
           </GridLayout>`);
