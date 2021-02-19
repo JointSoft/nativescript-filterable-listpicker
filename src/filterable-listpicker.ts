@@ -55,6 +55,11 @@ export const hintTextProperty = new Property<FilterableListpicker, string>({
 	name: "hintText",
 	defaultValue: "Enter text to filter..."
 });
+export const parentHandlesHideProperty = new Property<FilterableListpicker, boolean>({
+	name: "parentHandlesHide",
+	defaultValue: false,
+	valueConverter: booleanConverter
+});
 export const sourceProperty = new Property<FilterableListpicker, ObservableArray<any>>({
 	name: "source",
 	defaultValue: undefined,
@@ -118,6 +123,7 @@ export class FilterableListpicker extends GridLayout {
 	public hintText: any;
 	public hideFilter: any;
 	public enableSearch: any;
+	public parentHandlesHide: boolean;
 	public blur: any;
 	public markerColor: string;
 	private blurView: any = false;
@@ -183,7 +189,11 @@ export class FilterableListpicker extends GridLayout {
 			item,
 			selectedItem
 		});
-		this.hide();
+		if (!this.parentHandlesHide) {
+			setTimeout(() => {
+				this.hide();
+			}, 100);
+		}
 	}
 
 	public setSelected(indx) {
@@ -351,6 +361,7 @@ focusOnShowProperty.register(FilterableListpicker);
 hideFilterProperty.register(FilterableListpicker);
 blurProperty.register(FilterableListpicker);
 hintTextProperty.register(FilterableListpicker);
+parentHandlesHideProperty.register(FilterableListpicker);
 sourceProperty.register(FilterableListpicker);
 
 export interface SourcesInterface {
