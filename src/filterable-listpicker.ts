@@ -77,8 +77,6 @@ export class FilterableListpicker extends GridLayout {
 
 	onLoaded() {
 		super.onLoaded();
-		console.log(" ---------- LISTPICKER LOADED ----------");
-		// let innerComponent = builder.load(__dirname + '/filterable-listpicker.xml') as View;
 		let innerComponent = Builder.parse(`
           <GridLayout id="dc_flp_container" class="flp-container" visibility="collapse" loaded="{{loadedContainer}}">
               <StackLayout width="100%" height="100%"></StackLayout>
@@ -91,7 +89,10 @@ export class FilterableListpicker extends GridLayout {
                               <GridLayout columns="auto, *, auto" visibility="{{title ? 'visible' : 'collapse'}}" class="{{ !locked ? 'flp-row-container' : 'flp-row-container locked' }}">
                                   <Image src="{{image ? image : null}}" width="30" visibility="{{image ? 'visible' : 'collapse'}}" stretch="aspectFit" rowSpan="2" class="flp-image"></Image>
                                   <StackLayout class="flp-title-container" col="1" verticalAlignment="middle">
-                                      <Label text="{{title ? title : ''}}" textWrap="true" class="{{ !selected ? 'flp-title' : 'flp-title selected' }}"></Label>
+																			<GridLayout rows="auto" columns="*, auto">
+																				<Label row="0" col="0" text="{{title ? title : ''}}" textWrap="true" class="{{ !selected ? 'flp-title' : 'flp-title selected' }}"></Label>
+																				<Label row="0" col="1" text="{{subTitle ? subTitle : ''}}" textWrap="false" class="flp-sub-title" visibility="{{subTitle ? 'visible' : 'collapse'}}"></Label>
+																			</GridLayout>
                                       <Label text="{{description ? description : ''}}" textWrap="true" visibility="{{description ? 'visible' : 'collapse'}}" class="{{ !selected ? 'flp-description' : 'flp-description selected'}}"></Label>
 																	</StackLayout>
 																	<StackLayout row="0" col="2" width="3" borderRadius="2" backgroundColor="{{markerColor, markerColor}}" visibility="{{markerColor ? 'visible' : 'collapse'}}" margin="-5 -10" padding="-5 0"/>
@@ -363,14 +364,24 @@ export interface SourcesInterface {
 
 export class SourcesDataItem implements SourcesInterface {
 	title: string;
+	subTitle?: string;
 	image?: any;
 	description?: string;
 	locked?: boolean;
 	selected?: boolean;
 	markerColor?: string;
 
-	constructor(title: string, image?: any, description?: string, locked?: boolean, selected?: boolean, markerColor: string = "gray") {
+	constructor(
+		title: string,
+		subTitle?: string,
+		image?: any,
+		description?: string,
+		locked?: boolean,
+		selected?: boolean,
+		markerColor: string = "gray"
+	) {
 		this.title = title;
+		this.subTitle = subTitle;
 		this.image = image;
 		this.description = description;
 		this.locked = locked;
