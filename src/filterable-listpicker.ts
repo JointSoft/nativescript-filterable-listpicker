@@ -1,11 +1,11 @@
-import { ObservableArray } from "tns-core-modules/data/observable-array";
-import { isIOS } from "tns-core-modules/platform";
-import { Builder } from "tns-core-modules/ui/builder";
-import { booleanConverter, Property, PropertyChangeData } from "tns-core-modules/ui/core/view";
-import * as enums from "tns-core-modules/ui/enums";
-import { AnimationCurve } from "tns-core-modules/ui/enums";
-import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
-import { TextField } from "tns-core-modules/ui/text-field";
+import { isIOS } from "@nativescript/core";
+import { ObservableArray } from "@nativescript/core/data/observable-array";
+import { GridLayout, TextField } from "@nativescript/core/ui";
+import { Builder } from "@nativescript/core/ui/";
+import { booleanConverter, Property } from "@nativescript/core/ui/core/view";
+import * as enums from "@nativescript/core/ui/enums";
+import { AnimationCurve } from "@nativescript/core/ui/enums";
+import { PropertyChangeData } from "tns-core-modules/ui/core/view";
 
 let unfilteredSource: Array<any> = [];
 let filtering: boolean = false;
