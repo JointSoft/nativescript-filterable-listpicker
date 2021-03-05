@@ -1,11 +1,10 @@
-import { isIOS } from "@nativescript/core";
+import { isIOS, PropertyChangeData } from "@nativescript/core";
 import { ObservableArray } from "@nativescript/core/data/observable-array";
 import { booleanConverter, GridLayout, TextField } from "@nativescript/core/ui";
 import { Builder } from "@nativescript/core/ui/";
 import { Property } from "@nativescript/core/ui/core/view";
 import * as enums from "@nativescript/core/ui/enums";
 import { AnimationCurve } from "@nativescript/core/ui/enums";
-import { PropertyChangeData } from "tns-core-modules/ui/core/view";
 
 let unfilteredSource: Array<any> = [];
 let filtering: boolean = false;
