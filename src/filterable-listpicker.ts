@@ -91,7 +91,7 @@ export class FilterableListpicker extends GridLayout {
                       <ListView.itemTemplate>
                           <StackLayout id="{{id}}" class="flp-row" locked="{{ locked, locked }}">
                               <GridLayout columns="auto, *, auto" visibility="{{title ? 'visible' : 'collapse'}}" class="{{ !locked ? 'flp-row-container' : 'flp-row-container locked' }}">
-                                  <Image src="{{image ? image : null}}" width="30" visibility="{{image ? 'visible' : 'collapse'}}" stretch="aspectFit" rowSpan="2" class="flp-image"></Image>
+                                  <Image src="{{image ? image : null}}" width="30" visibility="{{image ? 'visible' : 'collapse'}}" stretch="aspectFit" rowSpan="2" class="flp-image" tintColor="{{ imageTintColor }}"></Image>
                                   <StackLayout class="flp-title-container" col="1" verticalAlignment="middle">
 																			<GridLayout rows="auto" columns="*, auto">
 																				<Label id="listItemTitle" row="0" col="0" text="{{title ? title : ''}}" textWrap="true" class="{{ !selected ? 'flp-title' : 'flp-title selected' }}"></Label>
@@ -125,6 +125,7 @@ export class FilterableListpicker extends GridLayout {
 	public parentHandlesHide: boolean;
 	public blur: any;
 	public markerColor: string;
+	public imageTintColor: string;
 	private blurView: any = false;
 	public focusOnShow: any;
 	public yPos: string;
@@ -370,6 +371,7 @@ export interface SourcesInterface {
 	locked?: boolean;
 	selected?: boolean;
 	markerColor?: string;
+	imageTintColor?: string;
 }
 
 export class SourcesDataItem implements SourcesInterface {
@@ -380,6 +382,7 @@ export class SourcesDataItem implements SourcesInterface {
 	locked?: boolean;
 	selected?: boolean;
 	markerColor?: string;
+	imageTintColor?: string;
 
 	constructor(
 		title: string,
@@ -388,7 +391,8 @@ export class SourcesDataItem implements SourcesInterface {
 		description?: string,
 		locked?: boolean,
 		selected?: boolean,
-		markerColor: string = "gray"
+		markerColor: string = "gray",
+		imageTintColor?: "#005777"
 	) {
 		this.title = title;
 		this.subTitle = subTitle;
@@ -397,5 +401,6 @@ export class SourcesDataItem implements SourcesInterface {
 		this.locked = locked;
 		this.selected = selected;
 		this.markerColor = markerColor;
+		this.imageTintColor = imageTintColor;
 	}
 }
